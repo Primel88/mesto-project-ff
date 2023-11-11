@@ -1,37 +1,37 @@
 export const initialCards = [
-    {
-      name: "Архыз",
-      link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-      alt: "Фотография Архыз",
-    },
-    {
-      name: "Челябинская область",
-      link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-      alt: "Фотография Челябинской области",
-    },
-    {
-      name: "Иваново",
-      link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-      alt: "Село Иваново",
-    },
-    {
-      name: "Камчатка",
-      link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-      alt: "Место камчатка",
-    },
-    {
-      name: "Холмогорский район",
-      link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-      alt: "Холмогорский район",
-    },
-    {
-      name: "Байкал",
-      link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-      alt: "Байкал",
-    },
+  {
+    name: "Архыз",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
+    alt: "Фотография Архыз",
+  },
+  {
+    name: "Челябинская область",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
+    alt: "Фотография Челябинской области",
+  },
+  {
+    name: "Иваново",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
+    alt: "Село Иваново",
+  },
+  {
+    name: "Камчатка",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
+    alt: "Место камчатка",
+  },
+  {
+    name: "Холмогорский район",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
+    alt: "Холмогорский район",
+  },
+  {
+    name: "Байкал",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
+    alt: "Байкал",
+  },
 ];
 
-export function cardCreate(cardData, deleteCallback, likeCallback, ImageCallback) {
+export function cardCreate(cardData, deleteCallback, likeCallback, imageCallback) {
   // клонировать шаблон
   const cardTemplate = document.querySelector('#card-template');
   const clone = cardTemplate.content.cloneNode(true);
@@ -41,7 +41,6 @@ export function cardCreate(cardData, deleteCallback, likeCallback, ImageCallback
   const cardImage = clone.querySelector('.card__image');
   const cardDelete = clone.querySelector('.card__delete-button');
   const cardLike = clone.querySelector('.card__like-button');
-  const imageButton = clone.querySelector('.popup__button');
 
   cardTitle.textContent = cardData.name;
   cardImage.src = cardData.link;
@@ -57,7 +56,7 @@ export function cardCreate(cardData, deleteCallback, likeCallback, ImageCallback
   });
 
   cardImage.addEventListener('click', (evt) => {
-    ImageCallback(evt);
+    imageCallback(evt);
   });
   
   return clone;

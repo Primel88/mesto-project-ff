@@ -1,8 +1,15 @@
 .card__image {
   height: 282px;
-  object-fit: cover;
   width: 100%;
+  position: relative;
   color: white;
+  overflow: hidden;
+}
+
+.card__image::before {
+  content: "";
+  display: block;
+  padding-top: 95%;
 }
 
 .card__image:hover {

@@ -3,6 +3,10 @@
   line-height: 22px;
   grid-area: description;
   margin: 0;
+  white-space: nowrap; /* Запретить перенос текста на новую строку */
+  overflow: hidden; /* Скрыть содержимое, которое не помещается в поле ввода */
+  text-overflow: ellipsis;
+  max-width: 318px;
 }
 
 @media screen and (max-width: 568px) {
