@@ -21,20 +21,10 @@ function closePopupByEsc(evt) {
   }
 }
 
- document.addEventListener('click', function(event) {
-  const popupEdit = document.querySelector('.popup_type_edit');
-  const popupNewCard = document.querySelector('.popup_type_new-card');
-  const popupImage = document.querySelector('.popup_type_image');
+document.addEventListener('click', function(event) {
+  const openedModal = document.querySelector('.popup_is-opened');
 
   if (event.target.classList.contains('popup')) {
-    if (popupEdit.classList.contains('popup_is-opened')) {
-      closePopup(popupEdit);
-    }
-    if (popupNewCard.classList.contains('popup_is-opened')) {
-      closePopup(popupNewCard);
-    }
-    if (popupImage.classList.contains('popup_is-opened')) {
-      closePopup(popupImage);
-    }
+    closePopup(openedModal);
   }
 });

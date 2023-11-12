@@ -9,24 +9,24 @@ function deleteCard(evt) {
 }
 
 function like(evt) {
-  const likeButton = evt.target.closest('.card__like-button');
-  likeButton.classList.toggle('card__like-button_is-active');
+  const buttonLike = evt.target.closest('.card__like-button');
+  buttonLike.classList.toggle('card__like-button_is-active');
 }
 
-  const popup = document.querySelector('.popup_type_image');
-  const image = popup.querySelector('.popup__image');
-  const newcaption = popup.querySelector('.popup__caption');
+  const popupImage = document.querySelector('.popup_type_image');
+  const imageInPopup = popupImage.querySelector('.popup__image');
+  const newcaption = popupImage.querySelector('.popup__caption');
 
 function createImage(link, caption) {
 
   const imageLink = link;
-  const text_Img = caption;
+  const textImg = caption;
 
-  image.src = imageLink;
-  newcaption.textContent = text_Img;
+  imageInPopup.src = imageLink;
+  newcaption.textContent = textImg;
 
-  openPopup(popup);
-  popup.style.backgroundColor = 'rgba(0, 0, 0, .9)';
+  openPopup(popupImage);
+  popupImage.style.backgroundColor = 'rgba(0, 0, 0, .9)';
 }
 
 // вывести карточки на страницу
@@ -58,17 +58,9 @@ newPopup.addEventListener('click', function(){
   openPopup(popupNewCard);
 });
 
-const popupImage = document.querySelector('.popup_type_image');
-
-const click = document.querySelector('.card__image');
-
-click.addEventListener('click', function(){
-    openPopup(popupImage);
-})
-
 document.addEventListener('keydown', function(event) {
   if (event.key === "+") {
-    openPopup('.popup_type_new-card');
+    openPopup(popupNewCard);
   }
 });
 
@@ -89,6 +81,8 @@ function handleFormSubmitEdit(evt) {
     // Вставьте новые значения с помощью textContent
     profiletTitle.textContent = nameValue;
     jobTitle.textContent = jobValue;
+    
+    closePopup(editPopup);
 }
 
 editForm.addEventListener('submit', handleFormSubmitEdit);
@@ -131,6 +125,8 @@ function createformcard(event) {
 
   nameInputNewcard.value = '';
   linkInputNewcard.value = '';
+  
+  closePopup(popupNewCard);
 }
 
 form.addEventListener('submit', createformcard);

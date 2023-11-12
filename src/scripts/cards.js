@@ -55,9 +55,9 @@ export function createCard(cardData, deleteCallback, likeCallback, imageCallback
     likeCallback(evt);
   });
 
-  cardImage.addEventListener('click', (evt) => {
-    const link = cardImage.getAttribute('src');
-    const caption = cardImage.getAttribute('alt');
+  cardImage.addEventListener('click', () => {
+    const link = cardData.link;
+    const caption = cardData.name;
     imageCallback(link, caption);
   });
   
