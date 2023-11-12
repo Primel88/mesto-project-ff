@@ -31,7 +31,7 @@ export const initialCards = [
   },
 ];
 
-export function cardCreate(cardData, deleteCallback, likeCallback, imageCallback) {
+export function createCard(cardData, deleteCallback, likeCallback, imageCallback) {
   // клонировать шаблон
   const cardTemplate = document.querySelector('#card-template');
   const clone = cardTemplate.content.cloneNode(true);
@@ -56,7 +56,9 @@ export function cardCreate(cardData, deleteCallback, likeCallback, imageCallback
   });
 
   cardImage.addEventListener('click', (evt) => {
-    imageCallback(evt);
+    const link = cardImage.getAttribute('src');
+    const caption = cardImage.getAttribute('alt');
+    imageCallback(link, caption);
   });
   
   return clone;

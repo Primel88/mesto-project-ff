@@ -1,32 +1,40 @@
 export function openPopup(element) {
-  if (element.classList.contains('popup_type_edit') || element.classList.contains('popup_type_new-card') || element.classList.contains('popup_type_image')) {
-      element.classList.add('popup_is-animated');
-      setTimeout(() => {
-      element.classList.add('popup_is-opened');
-      },0);
-   }
+    element.classList.add('popup_is-animated');
+    setTimeout(() => {
+    element.classList.add('popup_is-opened');
+    },0);
+    document.addEventListener('keydown', closePopupByEsc);
 }
 
-export function closePopup(NamePopup){
-   const popup = document.querySelector(NamePopup);
-   popup.classList.remove('popup_is-opened');
+export function closePopup(element){
+   element.classList.remove('popup_is-opened');
    setTimeout(() => {
-    popup.classList.remove('popup_is-animated');
+    element.classList.remove('popup_is-animated');
   }, 400);
+  document.removeEventListener('keydown', closePopupByEsc);
 }
 
-document.addEventListener('keydown', function(event) {
-   if (event.key === "Escape") {
-     closePopup('.popup_type_edit');
-     closePopup('.popup_type_new-card');
-     closePopup('.popup_type_image');
-   }
- });
+function closePopupByEsc(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_is-opened');
+      closePopup(openedPopup);
+  }
+}
 
  document.addEventListener('click', function(event) {
+  const popupEdit = document.querySelector('.popup_type_edit');
+  const popupNewCard = document.querySelector('.popup_type_new-card');
+  const popupImage = document.querySelector('.popup_type_image');
+
   if (event.target.classList.contains('popup')) {
-    closePopup('.popup_type_edit');
-    closePopup('.popup_type_new-card');
-    closePopup('.popup_type_image');
+    if (popupEdit.classList.contains('popup_is-opened')) {
+      closePopup(popupEdit);
+    }
+    if (popupNewCard.classList.contains('popup_is-opened')) {
+      closePopup(popupNewCard);
+    }
+    if (popupImage.classList.contains('popup_is-opened')) {
+      closePopup(popupImage);
+    }
   }
 });
