@@ -16,15 +16,15 @@ export function closePopup(element){
 
 function closePopupByEsc(evt) {
   if (evt.key === 'Escape') {
-    const openedPopup = document.querySelector('.popup_is-opened');
-      closePopup(openedPopup);
+    const popupOpened = document.querySelector('.popup_is-opened');
+      closePopup(popupOpened);
   }
 }
 
 document.addEventListener('click', function(event) {
-  const openedModal = document.querySelector('.popup_is-opened');
+  const modalOpened = document.querySelector('.popup_is-opened');
 
   if (event.target.classList.contains('popup')) {
-    closePopup(openedModal);
+    closePopup(modalOpened);
   }
 });

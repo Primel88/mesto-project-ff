@@ -104,9 +104,9 @@ removeImagePopup3.addEventListener('click', function() {
 });
 
 //-------------------------------------------------------------
-const form = document.querySelector('form[name="new-place"]');
-const nameInputNewcard = form.querySelector('.popup__input_type_card-name');
-const linkInputNewcard = form.querySelector('.popup__input_type_url');
+const formNewCard = document.querySelector('form[name="new-place"]');
+const nameInputNewcard = formNewCard.querySelector('.popup__input_type_card-name');
+const linkInputNewcard = formNewCard.querySelector('.popup__input_type_url');
 
 function createformcard(event) {
   event.preventDefault();
@@ -129,4 +129,4 @@ function createformcard(event) {
   closePopup(popupNewCard);
 }
 
-form.addEventListener('submit', createformcard);
+formNewCard.addEventListener('submit', createformcard);
