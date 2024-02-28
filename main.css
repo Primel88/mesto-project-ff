@@ -580,6 +580,13 @@ template {
   }
 }
 
+.profile__avatar {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  border-radius: 50%;
+  z-index: 0;
+}
 .profile__info {
   display: grid;
   grid-template-areas: "title button"
@@ -654,14 +661,32 @@ template {
 .profile__image {
   width: 120px;
   height: 120px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
+  margin: 0 30px 0 0;
+  padding: 0;
+  outline: none;
+  border: none;
   border-radius: 50%;
-  background-size: cover;
-  /*Ковер тут симпатичнее контейна*/
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile__image:hover::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8) url(a086f758840ae814ecde.svg);
+  background-size: 26px;
   background-position: center;
-  margin: 0 29px 0 0;
-  /*Макет очень кривоват, как считать этот отступ я хз. Проявите тут лояльность пока что*/
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  z-index: 1;
+  transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 740px) {
@@ -805,6 +830,13 @@ template {
   margin: 0;
 }
 
+.card__like-cifr{
+  position: absolute;
+  bottom: 0;
+  right: 7%;
+  transform: translateX(-50%);
+  margin-bottom: 5px;
+}
 .card {
   font-family: 'Inter', Arial, sans-serif;
   -webkit-border-radius: 10px;
@@ -826,6 +858,10 @@ template {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.popup_type_avatar .popup__content {
+  min-height: 272px;
 }
 
 @media screen and (max-width: 568px) {
@@ -947,6 +983,11 @@ template {
   }
 }
 
+.popup__button_disabled{
+  background: white;
+  color: gray;
+  border: 1px solid gray;
+}
 .popup__caption {
   font-size: 12px;
   line-height: 15px;
@@ -967,6 +1008,11 @@ template {
   display: block;
 }
 
+.popup__error_visible {
+    display: block; /* Показывать элемент */
+    color: red; /* Цвет текста ошибки */
+    font-size: 12px; /* Размер шрифта ошибки */
+  }
 .popup {
   font-family: 'Inter', Arial, sans-serif;
   display: none;
@@ -1002,5 +1048,8 @@ template {
   transition: visibility 0s, opacity 0.6s;
 }
 
+.form__input_type_error {
+  border-bottom-color: red;
+} 
 /*Импортируем на уровень выше*/
 
