@@ -1,0 +1,7 @@
+.card__like-cifr{
+  position: absolute;
+  bottom: 0;
+  right: 7%;
+  transform: translateX(-50%);
+  margin-bottom: 5px;
+}
