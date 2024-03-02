@@ -1,0 +1,5 @@
+# Ignore artifacts:
+babel.config.js
+package.json
+package-lock.json
+webpack.config.js

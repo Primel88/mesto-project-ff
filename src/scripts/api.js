@@ -28,7 +28,7 @@ export function getCards() {
   .then(res => _getResponseData(res));
 }
 
-export function SaveUser(userName, userAbout) {
+export function saveUserData(userName, userAbout) {
   return fetch(`${config.baseUrl}/users/me`, {
     method: 'PATCH',
     headers: config.headers,
@@ -40,7 +40,7 @@ export function SaveUser(userName, userAbout) {
   .then(res => _getResponseData(res));
 }
 
-export function SaveCard(name, link){
+export function saveCard(name, link){
   return fetch(`${config.baseUrl}/cards`, {
     method: 'POST',
     headers: config.headers,
@@ -52,7 +52,7 @@ export function SaveCard(name, link){
   .then(res => _getResponseData(res));
 }
 
-export function DeleteCard(id){
+export function deleteCard(id){
   return fetch(`${config.baseUrl}/cards/${id}`, {
     method: 'DELETE',
     headers: config.headers,
@@ -60,7 +60,7 @@ export function DeleteCard(id){
   .then(res => _getResponseData(res));
 }
 
-export function PUTlike(id){
+export function putLike(id){
   return fetch(`${config.baseUrl}/cards/likes/${id}`, {
     method: 'PUT',
     headers: config.headers,
@@ -68,7 +68,7 @@ export function PUTlike(id){
   .then(res => _getResponseData(res));
 }
 
-export function DeleteLike(id){
+export function deleteLike(id){
   return fetch(`${config.baseUrl}/cards/likes/${id}`, {
     method: 'DELETE',
     headers: config.headers,
@@ -76,7 +76,7 @@ export function DeleteLike(id){
   .then(res => _getResponseData(res));
 }
 
-export function PatchAvatar(avatarLink){
+export function updateAvatar(avatarLink){
   return fetch(`${config.baseUrl}/users/me/avatar`, {
     method: 'PATCH',
     headers: config.headers,

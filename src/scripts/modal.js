@@ -21,10 +21,11 @@ function closePopupByEsc(evt) {
   }
 }
 
-document.addEventListener('click', function(event) {
-  const modalOpened = document.querySelector('.popup_is-opened');
-
-  if (event.target.classList.contains('popup')) {
-    closePopup(modalOpened);
-  }
-});
+export function closePopupIfOutside(popup) {
+  return function(event) {
+      // Проверяем, был ли клик вне области попапа
+      if (!event.target.closest('.popup__content')) {
+          closePopup(popup);
+      }
+  };
+}
